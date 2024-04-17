@@ -1,10 +1,15 @@
 package uz.umarov.ismlarmanosi
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import uz.umarov.ismlarmanosi.databinding.AboutDialogBinding
@@ -15,16 +20,14 @@ class BaseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBaseBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityBaseBinding.inflate(layoutInflater)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
         countNames()
+
+        val window = window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = Color.parseColor("#ecf0f3")
 
         binding.cardBoys.setOnClickListener {
             val intent = Intent(this, NamesActivity::class.java)

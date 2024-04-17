@@ -5,11 +5,14 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
@@ -24,47 +27,50 @@ import uz.umarov.ismlarmanosi.utils.NamesObject
 import java.util.Locale
 
 class NamesActivity : AppCompatActivity() {
-    lateinit var binding: ActivityNamesBinding
-    lateinit var list: ArrayList<Properties>
+    private lateinit var binding: ActivityNamesBinding
+    private lateinit var list: ArrayList<Properties>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityNamesBinding.inflate(layoutInflater)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setContentView(binding.root)
+
+        val window = window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = Color.parseColor("#ecf0f3")
+
         supportActionBar?.hide()
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-        var type = intent.getStringExtra("gender")
+        val type = intent.getStringExtra("gender")
 
         list = ArrayList()
         when (type) {
             "m" -> {
                 list.addAll(NamesObject.boys())
             }
+
             "f" -> {
                 list.addAll(NamesObject.girls())
             }
+
             "a" -> {
                 list.addAll(NamesObject.properties)
             }
+
             "like" -> {
                 MySharedPreferences.init(this)
-                var listLike = MySharedPreferences.objectString
+                val listLike = MySharedPreferences.objectString
                 list.addAll(listLike)
             }
 
         }
-        var adapter = RvAdapter(list, object : OnCLick {
+        val adapter = RvAdapter(list, object : OnCLick {
             override fun click(properties: Properties, position: Int) {
                 showBottomSheet(properties, position)
             }
         })
         binding.rv.adapter = adapter
         binding.editText.addTextChangedListener {
-            var listSearch = ArrayList<Properties>()
+            val listSearch = ArrayList<Properties>()
             for (properties in list) {
                 for (i in 0 until properties.name.length + 1) {
                     if (properties.name.subSequence(0, i).toString()
@@ -75,7 +81,7 @@ class NamesActivity : AppCompatActivity() {
                     }
                 }
             }
-            var adapter = RvAdapter(listSearch, object : OnCLick {
+            val adapter = RvAdapter(listSearch, object : OnCLick {
                 override fun click(properties: Properties, position: Int) {
                     showBottomSheet(properties, position)
                 }
@@ -97,9 +103,8 @@ class NamesActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun showBottomSheet(properties: Properties, position: Int) {
-        var bottomSheetDialog =
-            BottomSheetDialog(this, R.style.SheetDialog)
-        var item = BottomSheetDialogBinding.inflate(layoutInflater)
+        val bottomSheetDialog = BottomSheetDialog(this, R.style.SheetDialog)
+        val item = BottomSheetDialogBinding.inflate(layoutInflater)
         bottomSheetDialog.setContentView(item.root)
         bottomSheetDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
         item.tvName.text = properties.name
@@ -116,7 +121,7 @@ class NamesActivity : AppCompatActivity() {
 
         item.cardLike.setOnClickListener {
             MySharedPreferences.init(this)
-            var list1 = MySharedPreferences.objectString
+            val list1 = MySharedPreferences.objectString
             if (!savedOrNot(properties)) {
                 list1.add(properties)
                 MySharedPreferences.objectString = list1
@@ -147,10 +152,10 @@ class NamesActivity : AppCompatActivity() {
 
     private fun savedOrNot(properties: Properties): Boolean {
         MySharedPreferences.init(this)
-        var list = MySharedPreferences.objectString
+        val list = MySharedPreferences.objectString
         var isHave = false
         for (i in list.indices) {
-            var exam = list[i]
+            val exam = list[i]
             if (exam == properties) {
                 isHave = true
                 break
@@ -160,17 +165,9 @@ class NamesActivity : AppCompatActivity() {
     }
 
     private fun copyName(origin: String, meaning: String) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-            val clipboard =
-                getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            clipboard.text = "$origin - $meaning"
-            Toast.makeText(this, "Nusxalandi", Toast.LENGTH_SHORT).show()
-        } else {
-            val clipboard =
-                getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-            val clip = ClipData.newPlainText("Copied Text", "$origin - $meaning")
-            clipboard.setPrimaryClip(clip)
-            Toast.makeText(this, "Nusxalandi", Toast.LENGTH_SHORT).show()
-        }
+        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText("Copied Text", "$origin - $meaning")
+        clipboard.setPrimaryClip(clip)
+        Toast.makeText(this, "Nusxalandi", Toast.LENGTH_SHORT).show()
     }
 }

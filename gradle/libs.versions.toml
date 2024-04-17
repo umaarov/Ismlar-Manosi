@@ -1,5 +1,7 @@
 [versions]
 agp = "8.3.2"
+dagger = "2.44.2"
+daggerCompiler = "2.44"
 gson = "2.10.1"
 kotlin = "1.9.0"
 coreKtx = "1.12.0"
@@ -7,6 +9,11 @@ junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
+kotlinxCoroutinesAndroid = "1.4.2"
+lifecycleRuntimeKtx = "2.7.0"
+lifecycleLivedataKtx = "1.0.0"
+lifecycleViewmodelKtx = "2.7.0"
+lifecycleViewmodelKtxVersion = "2.3.1"
 lottie = "5.2.0"
 material = "1.11.0"
 activity = "1.8.2"
@@ -17,12 +24,20 @@ sdpAndroid = "1.0.6"
 ksp = "1.8.10-1.0.9"
 
 [libraries]
+androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+androidx-lifecycle-viewmodel-ktx-v231 = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtxVersion" }
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "daggerCompiler" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }

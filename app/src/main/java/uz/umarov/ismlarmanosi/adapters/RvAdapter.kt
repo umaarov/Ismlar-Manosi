@@ -9,13 +9,15 @@ import uz.umarov.ismlarmanosi.models.Properties
 import uz.umarov.ismlarmanosi.service.OnCLick
 
 
-class RvAdapter(var list: ArrayList<Properties>, var onCLick: OnCLick) : RecyclerView.Adapter<RvAdapter.Vh>() {
+class RvAdapter(var list: ArrayList<Properties>, var onCLick: OnCLick) :
+    RecyclerView.Adapter<RvAdapter.Vh>() {
     inner class Vh(private var itemRv: ItemRvBinding) : RecyclerView.ViewHolder(itemRv.root) {
         fun onBind(properties: Properties, position: Int) {
             when (properties.gender) {
                 "M" -> {
                     itemRv.view.setBackgroundResource(R.color.blueLine)
                 }
+
                 "F" -> {
                     itemRv.view.setBackgroundResource(R.color.redLine)
                 }
@@ -23,7 +25,7 @@ class RvAdapter(var list: ArrayList<Properties>, var onCLick: OnCLick) : Recycle
             }
             itemRv.tvNames.text = properties.name
             itemRv.root.setOnClickListener {
-                onCLick.click(list[position],position)
+                onCLick.click(list[position], position)
             }
         }
 

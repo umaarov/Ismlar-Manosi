@@ -59,4 +59,16 @@ dependencies {
     //Universal size
     implementation (libs.sdp.android)
     implementation (libs.ssp.android)
+
+    //livedata
+    implementation (libs.androidx.lifecycle.viewmodel.ktx.v231)
+    implementation (libs.androidx.lifecycle.livedata.ktx)
+    implementation (libs.androidx.lifecycle.runtime.ktx)
+
+    implementation (libs.lifecycle.viewmodel.ktx)
+    implementation (libs.kotlinx.coroutines.android)
+    implementation (libs.androidx.activity.ktx)
+
+//    implementation (libs.dagger)
+//    ksp(libs.dagger.compiler)
 }
