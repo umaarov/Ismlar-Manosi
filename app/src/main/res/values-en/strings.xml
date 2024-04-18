@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Names Meaning</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="about_app">You can learn about the origin and meaning of Uzbek names through this app</string>
+    <string name="ismlar_ma_nosi">Names Meaning</string>
+    <string name="o_g_il_bolalar">Boys</string>
+    <string name="qiz_bolalar">Girls</string>
+    <string name="sevimli_ismlar">Favourite Names</string>
+    <string name="ulashish">Share</string>
+    <string name="dastur_haqida">About</string>
+    <string name="version_1_0_ntelegram_dribbblxr">Version : 1.0\nTelegram: @dribbblxr</string>
+    <string name="ismlar_nma_nosi">Names Meaning</string>
+    <string name="qidirish">Search</string>
+    <string name="ollohberdi">Ollohberdi</string>
+    <string name="kelib_chiqishi_uzbek_nma_nosi_alloh_ato_etgan_bola">Kelib chiqishi:Uzbek\nMa\'nosi Alloh ato etgan bola</string>
+    <string name="uzbek">UZBEK</string>
+    <string name="english">ENGLISH</string>
+    <string name="save">SAVE</string>
+</resources>
