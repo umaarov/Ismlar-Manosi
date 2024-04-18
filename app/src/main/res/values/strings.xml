@@ -1,11 +1,22 @@
 <resources>
     <string name="app_name">Ismlar ma\'nosi</string>
     <string name="title_activity_base">BaseActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="next">Keyingi</string>
+    <string name="previous">Avvalgi</string>
 
     <string name="about_app">Siz ushbu dastur orqali o\'zbek ismlarini kelib chiqishi va ma\'nolari haqida ma\'lumot olishingiz mumkin</string>
+    <string name="ismlar_ma_nosi">Ismlar ma\'nosi</string>
+    <string name="o_g_il_bolalar">O\'g\'il bolalar</string>
+    <string name="qiz_bolalar">Qiz bolalar</string>
+    <string name="sevimli_ismlar">Sevimli ismlar</string>
+    <string name="ulashish">Ulashish</string>
+    <string name="dastur_haqida">Dastur haqida</string>
+    <string name="version_1_0_ntelegram_dribbblxr">Versiya : 1.0\nTelegram: @dribbblxr</string>
+    <string name="ismlar_nma_nosi">Ismlar\nma\'nosi</string>
+    <string name="qidirish">Qidirish</string>
+    <string name="ollohberdi">Ollohberdi</string>
+    <string name="kelib_chiqishi_uzbek_nma_nosi_alloh_ato_etgan_bola">Kelib chiqishi:Uzbek\nMa\'nosi Alloh ato etgan bola</string>
+    <string name="uzbek">O\'ZBEKCHA</string>
+    <string name="english">ENGLISH</string>
+    <string name="save">SAQLASH</string>
 </resources>

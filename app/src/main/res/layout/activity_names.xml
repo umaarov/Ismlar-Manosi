@@ -46,7 +46,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:hint="Qidirish"
+                android:hint="@string/qidirish"
                 android:padding="15dp"
                 android:textColorHint="@android:color/darker_gray"
                 app:layout_constraintBottom_toBottomOf="parent"

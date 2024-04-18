@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/candal"
             android:gravity="center"
-            android:text="Ollohberdi"
+            android:text="@string/ollohberdi"
             android:textColor="@color/text_color"
             android:textSize="18sp" />
 
@@ -44,7 +44,7 @@
             android:fontFamily="@font/acme"
             android:gravity="center"
             android:padding="10dp"
-            android:text="Kelib chiqishi:Uzbek\nMa'nosi Alloh ato etgan bola"
+            android:text="@string/kelib_chiqishi_uzbek_nma_nosi_alloh_ato_etgan_bola"
             android:textColor="@color/text_color" />
 
         <androidx.constraintlayout.widget.ConstraintLayout

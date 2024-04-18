@@ -11,12 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import uz.umarov.ismlarmanosi.databinding.ActivityMainBinding
 import uz.umarov.ismlarmanosi.utils.NamesObject
-import uz.umarov.ismlarmanosi.vm.NamesViewModel
+import uz.umarov.ismlarmanosi.vm.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: NamesViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

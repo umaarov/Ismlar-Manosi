@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/aldrich"
-            android:text="Dastur haqida"
+            android:text="@string/dastur_haqida"
             android:textColor="@color/black"
             android:textSize="@dimen/_16ssp" />
 
@@ -41,7 +41,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Version : 1.0\nTelegram: @dribbblxr"
+            android:text="@string/version_1_0_ntelegram_dribbblxr"
             android:textColor="@color/black"
             android:textSize="@dimen/_10ssp" />
 

@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:fontFamily="@font/candal"
         android:gravity="center"
-        android:text="Ismlar\nma'nosi"
+        android:text="@string/ismlar_nma_nosi"
         android:textColor="@color/text_color"
         android:textSize="30sp"
         android:textStyle="bold" />

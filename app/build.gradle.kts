@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.ksp)
+    id("kotlin-kapt")
 }
 
 android {
@@ -52,23 +52,22 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation (libs.gson)
-    implementation (libs.neumorphism)
-    implementation (libs.lottie)
+    implementation(libs.gson)
+    implementation(libs.neumorphism)
+    implementation(libs.lottie)
 
     //Universal size
-    implementation (libs.sdp.android)
-    implementation (libs.ssp.android)
+    implementation(libs.sdp.android)
+    implementation(libs.ssp.android)
 
     //livedata
-    implementation (libs.androidx.lifecycle.viewmodel.ktx.v231)
-    implementation (libs.androidx.lifecycle.livedata.ktx)
-    implementation (libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx.v231)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 
-    implementation (libs.lifecycle.viewmodel.ktx)
-    implementation (libs.kotlinx.coroutines.android)
-    implementation (libs.androidx.activity.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.activity.ktx)
 
-//    implementation (libs.dagger)
-//    ksp(libs.dagger.compiler)
+    implementation(libs.play.services.ads)
 }

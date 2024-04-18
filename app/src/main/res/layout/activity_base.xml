@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/main"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
     tools:context=".BaseActivity">
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/candal"
         android:gravity="center"
-        android:text="Ismlar ma'nosi"
+        android:text="@string/ismlar_ma_nosi"
         android:textColor="@color/text_color"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -46,6 +46,29 @@
             android:layout_height="match_parent"
             android:scaleType="center"
             android:src="@drawable/ic_search" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardTranslate"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="90dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTitle"
+        app:layout_constraintDimensionRatio="1:1"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@id/cardSearch"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintTop_toTopOf="@id/tvTitle"
+        app:layout_constraintWidth_percent="0.135"
+        app:neumorph_shapeType="flat">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@drawable/baseline_translate_24" />
 
     </androidx.cardview.widget.CardView>
 
@@ -101,7 +124,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="O'g'il bolalar"
+                android:text="@string/o_g_il_bolalar"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -178,7 +201,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Qiz bolalar"
+                android:text="@string/qiz_bolalar"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -250,7 +273,7 @@
                     android:drawableEnd="@drawable/ic_baseline_navigate_next_24"
                     android:fontFamily="@font/acme"
                     android:paddingStart="10dp"
-                    android:text="Sevimli ismlar"
+                    android:text="@string/sevimli_ismlar"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -291,7 +314,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/acme"
                     android:paddingStart="10dp"
-                    android:text="Ulashish"
+                    android:text="@string/ulashish"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     app:drawableEndCompat="@drawable/ic_baseline_navigate_next_24" />
@@ -334,7 +357,7 @@
                     android:drawableEnd="@drawable/ic_baseline_navigate_next_24"
                     android:fontFamily="@font/acme"
                     android:paddingStart="10dp"
-                    android:text="Dastur haqida"
+                    android:text="@string/dastur_haqida"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -345,5 +368,14 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-2989575196315667/2171899351"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
