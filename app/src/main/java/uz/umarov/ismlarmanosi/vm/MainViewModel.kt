@@ -12,8 +12,9 @@ import uz.umarov.ismlarmanosi.models.Properties
 
 class MainViewModel : ViewModel() {
 
-    fun loadNames(context: Context) = liveData {
-        val data = getJsonDataFromAsset(context, "names.json")
+    fun loadNames(context: Context, language: String) = liveData {
+        val fileName = if (language == "uz") "names.json" else "names_en.json"
+        val data = getJsonDataFromAsset(context, fileName)
         if (data != null) {
             val gson = Gson()
             val listType = object : TypeToken<Names>() {}.type

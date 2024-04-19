@@ -7,6 +7,7 @@ import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import uz.umarov.ismlarmanosi.databinding.ActivitySwitchLanguageBinding
 import java.util.Locale
 
@@ -18,6 +19,7 @@ class SwitchLanguageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySwitchLanguageBinding.inflate(layoutInflater)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setContentView(binding.root)
 
         sharedPreferences = getSharedPreferences("language_pref", Context.MODE_PRIVATE)

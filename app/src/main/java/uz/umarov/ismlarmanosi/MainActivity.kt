@@ -1,5 +1,6 @@
 package uz.umarov.ismlarmanosi
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -43,7 +44,9 @@ class MainActivity : AppCompatActivity() {
             override fun onAnimationStart(p0: Animation?) { }
 
             override fun onAnimationEnd(p0: Animation?) {
-                viewModel.loadNames(applicationContext).observe(this@MainActivity) { properties ->
+                // Determine the language code based on your app's settings
+                val languageCode = determineLanguageCode()
+                viewModel.loadNames(applicationContext, languageCode).observe(this@MainActivity) { properties ->
                     if (properties.isNotEmpty()) {
                         NamesObject.properties = properties
                         startActivity(Intent(this@MainActivity, BaseActivity::class.java))
@@ -54,4 +57,11 @@ class MainActivity : AppCompatActivity() {
             override fun onAnimationRepeat(p0: Animation?) { }
         })
     }
+
+    private fun determineLanguageCode(): String {
+        // Retrieve the selected language from SharedPreferences
+        val sharedPreferences = getSharedPreferences("language_pref", Context.MODE_PRIVATE)
+        return sharedPreferences.getString("language", "uz") ?: "uz"
+    }
+
 }
